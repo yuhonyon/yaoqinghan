@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+
+<html  lang="ch">
+<head>
+<title>2014年12月12日岭南天地新品发布会邀请函</title>
+<meta charset="utf-8">
+<meta name="keywords" content="" >
+<meta name="description" content="" >
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport" id="viewport" />
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+    body{
+        background:url(images/1.jpg) 0 0 no-repeat;
+        background-size: 100% 100%;
+
+    }
+    .wrap{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+        bottom: -30rem;
+        z-index: 2;
+    }
+    .slidebox{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+    }
+    .slide{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        overflow: hidden;
+        -webkit-transform: translate3d(0, 0, 0);
+        -webkit-backface-visibility: hidden;
+        -webkit-perspective: 1000;
+         -o-transform: translate3d(0, 0, 0);
+        -o-backface-visibility: hidden;
+        -o-perspective: 1000;
+         transform: translate3d(0, 0, 0);
+        backface-visibility: hidden;
+        perspective: 1000;
+
+    }
+    .slide.active{
+         z-index: 9; 
+    }
+    .slide.next{
+         z-index: 10; 
+        top: 100%;
+    }
+    .slide.last{
+         z-index: 10; 
+         top: -100%;
+    }
+    .autoimg{
+        width: 100%;
+        float: left;
+    }
+    .after{
+        width: 100%;
+        position: absolute;
+        z-index: 20;
+        bottom: -0.5rem;
+         transition: all 1s ease-in .2s;
+        -moz-transition:all 1s ease-in .2s;
+         -webkit-transition:all 1s ease-in .2s;
+    }
+    .before{
+        width: 100%;
+        position: absolute;
+        z-index: 1;
+        bottom:-0.35rem;
+    }
+    .xin{
+        position: absolute;
+        overflow: hidden;
+        bottom: 30%;
+        width: 100%;
+        height: 100%;
+    }
+    .gaiind.gai{
+        z-index: 1;
+    }
+    .gai{
+        backface-visibility:hidden;
+        -webkit-backface-visibility:hidden; 
+        -moz-backface-visibility:hidden;    
+        -ms-backface-visibility:hidden;    
+        position: absolute;
+        z-index: 20;
+        width: 100%;
+        bottom: 12.55rem;
+        transform: rotateX(180deg);
+        -webkit-transform: rotateX(180deg);
+        transform-origin:50% 100%;
+        -webkit-transform-origin:50% 100%;
+    }
+    .gaiind.gai1{
+        z-index: 1;
+    }
+    .gai1{
+        backface-visibility:hidden;
+        -webkit-backface-visibility:hidden; 
+        -moz-backface-visibility:hidden;    
+        -ms-backface-visibility:hidden;   
+        position: absolute;
+        z-index: 21;
+        width: 100%;
+        bottom: 5rem;
+        transform: rotateX(0deg);
+        -webkit-transform: rotateX(0deg);
+        transform-origin:50% 0%;
+        -webkit-transform-origin:50% 0%;
+    }
+    @-webkit-keyframes flipOutX{
+    0%{-webkit-transform:perspective(1200px) rotateX(180deg);-webkit-transform-origin:50% 100%;
+    opacity:1}
+    100%{-webkit-transform:perspective(1200px) rotateX(0deg);-webkit-transform-origin:50% 100%;
+    opacity:1}
+    }
+    keyframes flipOutX{
+    0%{transform:perspective(1200px) rotateX(180deg);transform-origin:50% 100%;
+    opacity:1}
+    100%{transform:perspective(1200px) rotateX(0deg);transform-origin:50% 100%;
+    opacity:1}
+    }
+    @-webkit-keyframes flipOutX2{
+    0%{-webkit-transform:perspective(1200px) rotateX(0deg);-webkit-transform-origin:50% 0%;
+    opacity:1}
+    100%{-webkit-transform:perspective(1200px) rotateX(180deg);-webkit-transform-origin:50% 0%;
+    opacity:1}
+    }
+    keyframes flipOutX2{
+    0%{transform:perspective(1200px) rotateX(0deg);transform-origin:50% 0%;
+    opacity:1}
+    100%{transform:perspective(1200px) rotateX(1800deg);transform-origin:50% 0%;
+    opacity:1}
+    }
+
+
+
+    @-webkit-keyframes hinge {
+    0% { -webkit-transform: translateY(0px);}    
+    100% { -webkit-transform: translateY(300px); opacity: 0; }
+    }
+
+    #hinge {
+        background:url(images/hinge.png) 0 0 no-repeat;
+        background-size: 100%;
+        border-radius: 50%;
+        width: 3rem;
+        height: 3rem;
+        position: absolute;
+        left: 43.8%;
+        bottom: 14.5rem;
+        z-index: 1000;
+    }
+    .outer{
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: 100%
+    }
+    .btn{
+        width: 23.4%;
+        height: 1.36rem;
+        background: url(images/btn.png) 0 0 no-repeat;
+        background-size: 100% 100%;
+        position: absolute;
+        right:20%;
+        top: 19.5rem;
+        z-index: 10;
+    }
+
+    .slide-tips{
+        display: none;
+    position: absolute;
+    bottom:2%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 25;
+}
+.slide-tips i{
+    width:40px; height:40px;
+    -webkit-animation: start3 1.5s infinite ease-in-out;
+    -moz-animation: start3 1.5s infinite ease-in-out;
+    animation: start3 1.5s infinite ease-in-out;
+}
+.slide-tips i:after{
+    content:' ';
+    position:absolute; 
+    top:50%; 
+    left:50%; 
+    margin-top:-27px; 
+    margin-left:-8px; 
+    width:16px; 
+    height:16px;
+    border:#8294ae solid;
+    border-width:4px 4px 0 0;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+@-webkit-keyframes start3 {
+    0%,30% {opacity: 0;-webkit-transform: translate(0,15px);}
+    60% {opacity: 1;-webkit-transform: translate(0,5px);}
+    100% {opacity: 0;-webkit-transform: translate(0,-10px);}
+}
+@-moz-keyframes start3 {
+    0%,30% {opacity: 0;-moz-transform: translate(0,15px);}
+    60% {opacity: 1;-moz-transform: translate(0,5px);}
+    100% {opacity: 0;-moz-transform: translate(0,-10px);}
+}
+@keyframes start3 {
+    0%,30% {opacity: 0;transform: translate(0,15px);}
+    60% {opacity: 1;transform: translate(0,5px);}
+    100% {opacity: 0;transform: translate(0,-10px);}
+}
+
+@-webkit-keyframes start1 {
+    0%,30% {opacity: 0;-webkit-transform: translate(-15px,0);}
+    60% {opacity: 1;-webkit-transform: translate(-5px,0);}
+    100% {opacity: 0;-webkit-transform: translate(10px,0);}
+}
+@-moz-keyframes start1 {
+    0%,30% {opacity: 0;-moz-transform: translate(-15px,0);}
+    60% {opacity: 1;-moz-transform: translate(-5px,0);}
+    100% {opacity: 0;-moz-transform: translate(10px,0);}
+}
+@keyframes start1 {
+    0%,30% {opacity: 0;transform: translate(-15px,0);}
+    60% {opacity: 1;transform: translate(-5px,0);}
+    100% {opacity: 0;transform: translate(10px,0);}
+}
+.loading{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 99999;
+    width: 100%;
+    height: 100%;
+    background: #ececec;
+    text-align: center;
+}
+.loading img{
+    width: 60%;
+    margin-top: 60%;
+    margin-left: 20%;
+
+}
+.shou{
+    position: absolute;
+    z-index: 1001;
+    top: 20rem;
+    left: 50%;
+    width: 20%;
+}
+.shou img{
+    width: 100%
+}
+.music{
+    position: absolute;
+    right: 0%;
+    top: 0;
+    width: 5em;
+    height: 10em;
+    z-index: 20px;
+}
+.music i{
+    width: 1.5em;
+    height: 1.5em;
+    background: url(images/music.png) 0 0 no-repeat;
+    background-size: 100% 200%;
+    position: absolute;
+    right: 20%;
+    top: 2em;
+    z-index: 20;
+}
+#canvas{
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    right: 10%;
+    z-index: 19;
+    top: -2.5em;
+}
+</style>
+</head>
+<body>
+    <audio  id="audio"  loop="loop" autoplay="autoplay">
+      <source src="1.ogg" type="audio/ogg">
+      <source src="1.mp3" type="audio/mpeg">
+    </audio>
+    <div class="music">
+        <canvas width="100";height="100"; id="canvas"></canvas>
+        <i></i>
+    </div>
+    <div class="loading"><img src="images/load.gif" alt="" class="autoimg"></div>
+    <div class="shou"><img src="images/shou.png" alt="" class="autoimg"></div>
+    <div class="outer">
+        <div style="display: none"><img src="images/con2.png" alt="" class="autoimg"><img src="images/con3.png" alt="" class="autoimg"></div>
+        <div class="slide-tips">
+            <i></i>
+        </div>
+        <div id="hinge"></div>
+        <div class="xin">
+            <div class="after"><img src="images/after.png" alt="" class="autoimg"></div>
+            <div class="before"><img src="images/before.png" alt="" class="autoimg"></div>
+            <div class="gai"><img src="images/gai.png" alt="" class="autoimg"></div>
+            <div class="gai1"><img src="images/gai1.png" alt="" class="autoimg"></div>
+            <div class="wrap" id="wrap">
+                <div class="slidebox">
+                    <div class="slide"><img src="images/con1.png" alt="" class="autoimg"></div>
+                    <div class="slide"><img src="images/con21.png" alt="" class="autoimg ocon2"><a href="javascript:void" class="btn"></a></div>
+                    <div class="slide"><img src="images/con31.png" alt="" class="autoimg ocon1"><a href="javascript:void" class="btn"></a></div>
+                    
+                    <div class="slide"><a href="http://mo.amap.com/navi?start=&dest=113.1198310000,23.0368810000&destName=佛山岭南天地发布会地点(马哥孛罗酒店)&key=b62f938759ff3a852295540f101c82b3"><img src="images/con5.png" alt="" class="autoimg"></a></div>
+                    <div class="slide"><img src="images/con4.png" alt="" class="autoimg"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="js/jquery-1.11.0.js"></script>
+<script src="js/music.js"></script>
+<script>
+    $("html").css("fontSize",$(window).width()/160*7+"px");
+    $(window).resize(function(){$("html").css("fontSize",$(window).width()/160*7+"px");});
+    var wjud=true;
+    var audio=document.getElementById("audio");
+    var musicjud=true;
+    var jud3=true;
+        $(".music i").click(function(){
+            if(musicjud){
+              musicjud=false;
+              jud3=false;
+              $(".music i").css("backgroundPosition","0 100%")
+              $("#canvas").hide();
+              audio.pause();
+            }
+            else{
+              musicjud=true;
+               $(".music i").css("backgroundPosition","0 0")
+              $("#canvas").show(1000);
+              audio.play();
+            }
+        })
+
+    $(window).load(function(){
+        
+        $(".outer").height($(window).height());
+        $(".shou").attr("style","-webkit-animation:start1 1.5s ease infinite both;animation:start1 1.5s ease infinite both;");
+        $(".loading").fadeOut("400");
+        $(".btn").click(function() {
+          
+            if(wjud){
+                $(".ocon1").attr("src","images/con3.png")
+                $(".ocon2").attr("src","images/con2.png")
+                wjud=false;
+            }
+            else{
+                $(".ocon1").attr("src","images/con31.png")
+                $(".ocon2").attr("src","images/con21.png")
+                wjud=true;
+            }
+        });
+        $(".shou").on("touchstart",function(){
+            $(".shou").fadeOut("400");
+        })
+
+
+
+    })
+
+    var sx,sy,ex,ey;
+    var mj=false;
+    var hinge=document.getElementById("hinge");
+    hinge.addEventListener("touchstart",function(e){
+        $(".shou").fadeOut("400");
+        if(jud3){
+            audio.play();
+        }
+        mj = true;
+        sx = e.touches[0].pageX;
+        sy = e.touches[0].pageY;
+        this.addEventListener('touchmove', onTouchMove2, false);
+        this.addEventListener('touchend', onTouchEnd2, false);
+    })
+    function onTouchMove2(e) {
+         if(mj) {
+            e.preventDefault();
+            ex = e.touches[0].pageX;
+            ey = e.touches[0].pageY;
+            $(this).css({
+                left: ex-$(this).width()/2,
+                top: ey-$(this).height()/2
+            });
+            var ddx = sx - ex;
+            var ddy = sy - ey;
+            if(Math.abs(ddy)>100||Math.abs(ddx)>100){
+                $(this).attr("style","left:"+(ex-$(this).width()/2)+"px;top:"+(ey-$(this).height()/2)+"px;-webkit-animation:hinge 1s ease both;animation:hinge 1s ease both;");
+                this.removeEventListener('touchmove', onTouchMove2, false);
+                this.removeEventListener('touchend', onTouchEnd2, false);
+                $(".wrap").attr("style","bottom:-2.5rem;-webkit-transition:all 1s ease-in 2s;");
+                $(".xin").attr("style","bottom:1rem;-webkit-transition:all 1s ease-in 2s;height:"+$(window).height()+"px");
+                $(".gai").attr("style","-webkit-animation:flipOutX 1s ease 1s both;animation:flipOutX 1s ease 1s both;");
+                $(".gai1").attr("style","-webkit-animation:flipOutX2 1s ease 1s both;animation:flipOutX2 1s ease 1s both;");
+                setTimeout(function(){
+                    $(".gai,.gai1").addClass('gaiind');
+                    $(".slide-tips").show();
+                },2000)
+            }
+
+         }
+     }
+     function onTouchEnd2(e){
+        
+        if(mj){
+            $(this).attr("style","left:"+(ex-$(this).width()/2)+"px;top:"+(ey-$(this).height()/2)+"px;-webkit-animation:hinge 1s ease both;animation:hinge 1s ease both;");
+            this.removeEventListener('touchmove', onTouchMove2, false);
+            this.removeEventListener('touchend', onTouchEnd2, false);
+            $(".wrap").attr("style","bottom:-2.5rem;-webkit-transition:all 1s ease-in 2s;");
+            $(".xin").attr("style","bottom:1rem;-webkit-transition:all 1s ease-in 2s;height:"+$(window).height()+"px");
+            $(".gai").attr("style","-webkit-animation:flipOutX 1s ease 1s both;animation:flipOutX 1s ease 1s both;");
+            $(".gai1").attr("style","-webkit-animation:flipOutX2 1s ease 1s both;animation:flipOutX2 1s ease 1s both;");
+            setTimeout(function(){
+                $(".gai,.gai1").addClass('gaiind');
+                $(".slide-tips").show();
+            },2000)
+
+        }
+     }   
+
+
+
+    var ind=0;
+    var startX;
+    var startY;
+    var startendY;
+    var startendX;
+    var isMoving = false;
+    var movejud=true;
+    var wrap=document.getElementById("wrap");
+    var oheight=$(window).height();
+    var hack=["-webkit-","-o-","-moz-","-ms-",""];
+    function nextind(){
+        var nextind=ind+1;
+        if(nextind>=$(".slide").length){
+            nextind=0;
+        }
+        return nextind;
+    }
+    function lastind(){
+        var lastind=ind-1;
+        if(lastind<0){
+            lastind=$(".slide").length-1;
+        }
+        return lastind;
+    }
+
+    function addclass(){
+        $(".slide").eq(ind).addClass('active');
+        $(".slide").eq(nextind()).addClass('next');
+        $(".slide").eq(lastind()).addClass('last');
+    }
+
+    function removeclass(){
+        $('.active').attr("style","");
+        $(".next").attr("style","");
+        $(".last").attr("style","");
+        $('.active').removeClass('active');
+        $(".next").removeClass('next');
+        $(".last").removeClass('last');
+    }
+
+    function movedn(){
+        var dnstyle="";
+        var dnnext="";
+        for(var i=0;i<hack.length;i++){
+            dnstyle+=hack[i]+"transition:all 0.5s;"+hack[i]+"transform:translate(0,"+(-oheight/2)+"px);";
+            dnnext+=hack[i]+"transition:all 0.5s;"+hack[i]+"transform:translate(0,"+(-oheight)+"px);";
+        }
+
+        /*$(".active").attr("style",dnstyle);*/
+
+        $(".slide").eq(nextind()).attr("style",dnnext);
+        setTimeout(function(){
+            removeclass();
+            ind=nextind();
+            addclass();
+            movejud=true;
+        },500)
+    }
+
+
+
+function moveup(){
+        var upstyle="";
+        var upnext="";
+        for(var i=0;i<hack.length;i++){
+            upstyle+=hack[i]+"transition:all 0.5s;"+hack[i]+"transform:translate(0,"+(oheight)+"px);";
+            upnext+=hack[i]+"transition:all 0.5s;"+hack[i]+"transform:translate(0,"+(oheight)+"px);";
+        }
+
+        /*$(".active").attr("style",upstyle);*/
+
+        $(".slide").eq(lastind()).attr("style",upnext);
+        setTimeout(function(){
+            removeclass();
+            ind=lastind();
+            addclass();
+            movejud=true;
+        },500)
+    }
+
+
+    addclass();
+
+    function onTouchMove(e) {
+         if(isMoving&&movejud) {
+            e.preventDefault();
+            startendX = e.touches[0].pageX;
+            startendY = e.touches[0].pageY;
+            var moveing = (parseInt(startendY)-parseInt(startY))*100/oheight;
+            var styleing = "";
+            var laststyle="";
+            var nextstyle="";
+            scale=1-Math.abs(moveing/100);
+            for(var i=0;i<hack.length;i++){
+                styleing += hack[i]+"transform:translateY("+moveing+"%);"
+                laststyle+=hack[i]+"transform:translateY("+moveing+"%);"
+                nextstyle+=hack[i]+"transform:translateY("+moveing+"%);"
+            }
+           /* $(".active").attr("style",styleing);*/
+            $(".last").attr("style",laststyle);
+            $(".next").attr("style",nextstyle);
+         }
+     }
+
+    wrap.addEventListener("touchstart", function (e){
+     if (e.touches.length == 1&&movejud) {
+        startX = e.touches[0].pageX;
+        startY = e.touches[0].pageY;
+        startendY=e.touches[0].pageY;
+         startendX=e.touches[0].pageX;
+        isMoving = true;
+        this.addEventListener('touchmove', onTouchMove, false);
+        this.addEventListener('touchend', onTouchEnd, false);
+
+        }
+        }, false);
+      function onTouchEnd(e){
+        
+        if(isMoving==true&&movejud){
+        var dx = startX - startendX;
+        var dy = startY - startendY;
+
+        if(Math.abs(dy) >=20) {
+            movejud=false;
+            if(dy>0){//next
+                movedn();
+            }
+            else{
+                moveup();
+            }
+
+        }
+        else{
+            var nostyle="";
+            for(var i=0;i<hack.length;i++){
+                nostyle+=hack[i]+"transition:all 0.3s;"+hack[i]+"transform:translate(0,0) scale(1);";
+            }
+            $(".active").attr("style",nostyle);
+            $(".last").attr("style",nostyle);
+            $(".next").attr("style",nostyle);
+
+        }
+        /* else if(Math.abs(dx) >= 70) {
+            // movejud=false;  
+            if(dx<0){
+              
+            }
+            else{
+
+            }
+
+        }*/
+
+        }
+    }    
+</script>
+</body>
+</html>
